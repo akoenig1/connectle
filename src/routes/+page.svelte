@@ -173,5 +173,4 @@
     />
     <button on:click={handleSubmit}>{slug ? "Update" : "Submit"}</button>
   </form>
-
 </div>
