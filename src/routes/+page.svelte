@@ -102,7 +102,7 @@
     navigator.clipboard.writeText(URL + slug);
     buttonState = 1;
     setTimeout(() => buttonState = 0, 1000);
-  }
+  };
 </script>
 
 <div class="contanier">
