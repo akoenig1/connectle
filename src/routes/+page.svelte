@@ -34,25 +34,21 @@
   const moveUp = (event, level) => {
     event.preventDefault();
     if (level <= 0) return;
-    const newCategories = [...data.categories];
     const temp = data.categories[level];
-    newCategories[level].level = level - 1;
-    newCategories[level - 1].level = level;
-    newCategories[level] = data.categories[level - 1];
-    newCategories[level - 1] = temp;
-    data = { ...data, categories: newCategories };
+    data.categories[level] = data.categories[level - 1];
+    data.categories[level - 1] = temp;
+    data.categories[level].level = level;
+    data.categories[level - 1].level = level - 1;
   };
 
   const moveDown  = (event, level) => {
     event.preventDefault();
     if (level >= 3) return;
-    const newCategories = [...data.categories];
     const temp = data.categories[level];
-    newCategories[level].level = level + 1;
-    newCategories[level + 1].level = level;
-    newCategories[level] = data.categories[level + 1];
-    newCategories[level + 1] = temp;
-    data = { ...data, categories: newCategories };
+    data.categories[level] = data.categories[level + 1];
+    data.categories[level + 1] = temp;
+    data.categories[level].level = level;
+    data.categories[level + 1].level = level + 1;
   }
 
   const handleChangeTitle = (value, level) => {
