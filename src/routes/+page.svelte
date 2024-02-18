@@ -7,22 +7,22 @@
       {
         title: "",
         level: 0,
-        members: ["", "", "", ""],
+        items: ["", "", "", ""],
       },
       {
         title: "",
         level : 1,
-        members: ["", "", "", ""],
+        items: ["", "", "", ""],
       },
       {
         title: "",
         level: 2,
-        members: ["", "", "", ""],
+        items: ["", "", "", ""],
       },
       {
         title: "",
         level : 3,
-        members: ["", "", "", ""],
+        items: ["", "", "", ""],
       },
     ],
     title: "",
@@ -59,7 +59,7 @@
 
   const handleChangeItem = (value, level, index) => {
     const newCategories = [...data.categories];
-    newCategories[level].members[index] = value;
+    newCategories[level].items[index] = value;
     data = { ...data, categories: newCategories };
   }
 
@@ -69,8 +69,8 @@
     if (data.title.length > 0) {
       data.categories.forEach(category => {
         if (category.title.length > 0) {
-          category.members.forEach(member => {
-            if (member.length <= 0) {
+          category.items.forEach(item => {
+            if (items.length <= 0) {
               filled = false;
             }
           });

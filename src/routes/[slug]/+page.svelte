@@ -13,19 +13,19 @@
         categories: [
           {
             title: "Category 1",
-            members: ["Item 1", "Item 2", "Item 3", "Item 4"],
+            items: ["Item 1", "Item 2", "Item 3", "Item 4"],
           },
           {
             title: "Category 2",
-            members: ["Item 1", "Item 2", "Item 3", "Item 4"],
+            items: ["Item 1", "Item 2", "Item 3", "Item 4"],
           },
           {
             title: "Category 3",
-            members: ["Item 1", "Item 2", "Item 3", "Item 4"],
+            items: ["Item 1", "Item 2", "Item 3", "Item 4"],
           },
           {
             title: "Category 4",
-            members: ["Item 1", "Item 2", "Item 3", "Item 4"],
+            items: ["Item 1", "Item 2", "Item 3", "Item 4"],
           },
         ],
         timeCreated: new Date(),
