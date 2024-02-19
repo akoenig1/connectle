@@ -41,7 +41,6 @@
     text-transform: uppercase;
     border-radius: 6px;
     z-index: 0;
-    // position: absolute;
     transition: opacity 0.4s ease;
     box-sizing: border-box;
     display: flex;
@@ -58,7 +57,20 @@
     }
   }
 
-.invalid-shake {
-  animation: shake ease-in 0.2s 1.5;
-}
+  .invalid-shake {
+    animation: shake ease-in 0.2s 1.5;
+  }
+
+  @keyframes shake {
+    0%,
+    25% {
+      transform: translateX(-5px);
+    }
+    75% {
+      transform: translateX(5px);
+    }
+    100% {
+      transform: translatex(0);
+    }
+  }
 </style>
