@@ -37,3 +37,10 @@
     {/if}
   {/if}
 </div>
+
+<style lang="scss">
+  .app {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+</style>

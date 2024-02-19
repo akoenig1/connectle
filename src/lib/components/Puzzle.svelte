@@ -234,3 +234,197 @@
     <button on:click={() => displayPopup = true}>View Results</button>
   {/if}
 </div>
+
+<style lang="scss">
+  $selected-color: #5a594e;
+
+  h1 {
+    font-family: 'Karnak Condensed', serif;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size: 42px;
+  }
+
+  h2 {
+    font-family: 'Franklin Bold', sans-serif;
+  }
+
+  p {
+    font-family: 'Franklin Light', sans-serif;
+  }
+
+  button {
+    font-family: 'Franklin', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    width: fit-content;
+    min-width: 5.5em;
+    height: 3em;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    max-width: 80vw;
+    border-radius: 32px;
+    line-height: 16px;
+    cursor: pointer;
+    border: black solid 1px;
+    background: white;
+    color: black;
+  }
+  
+  #hint {
+    visibility: hidden;
+    font-family: 'NYT-Franklin';
+    position: fixed;
+    left: 50%;
+    transform: translateX(calc(-50% - 30px));
+    margin: 30px;
+    background-color: black;
+    color: white;
+    padding: 13px;
+    border: none;
+    border-radius: 4px;
+    opacity: 1;
+    font-size: 14px;
+    line-height: 16px;
+    z-index: 100;
+    text-align: center;
+
+    &.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 2s forwards;
+    }
+
+    p {
+      color: white;
+      margin: 0;
+    }
+  }
+
+  .header {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1280px;
+
+    h1 {
+      margin-right: 16px;
+    }
+
+    h2 {
+      font-family: 'Franklin Light', sans-serif;
+      display: inline-block;
+      font-size: 28px;
+      font-weight: 300;
+    }
+
+    img {
+      width: 204px;
+      flex-shrink: 0;
+      margin-right: 16px;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .nav-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    font-family: "Franklin";
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .047em;
+    text-transform: uppercase;
+    height: 36px;
+    border: 1px solid #f4f4f4;
+    border-radius: 3px;
+    color: #fff;
+    border-color: #000;
+    background-color: #000;
+    margin-left: 8px;
+    padding: 1px 33px 4px;
+    cursor: pointer;
+  }
+
+  .connectle-wrapper {
+    width: 632px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+  }
+
+  .mistakes-container {
+    display: flex;
+    justify-content: center;
+    padding: 0 0 20px;
+  }
+
+  .bubbles-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 118px;
+    align-items: center;
+    margin-left: 10px;
+  }
+
+  .bubble {
+    background-color: $selected-color;
+    width: 16px;
+    height: 16px;
+    border-radius: 9999px;
+    margin: 0 7px;
+  }
+
+  .buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #deselect-all-button {
+    width: 120px;
+  }
+
+  #submit-button[disabled] {
+    border-color: #7f7f7f;
+    background-color: white;
+    color: #7f7f7f;
+    cursor: not-allowed;
+  }
+
+  #submit-button {
+    background: black;
+    color: white;
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeout {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+</style>
