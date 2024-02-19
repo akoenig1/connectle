@@ -84,7 +84,7 @@
     hint = "";
   }
 
-  const checkSubmit = () => {
+  const checkAnswer = () => {
     let selected = [];
     let levelsSelected = [0,0,0,0];
     let allCorrect = true;
@@ -119,7 +119,20 @@
       items = updatedItems;
       numberSelected = 0;
     } else {
+      let oneAway = false;
 
+      levelsSelected.forEach(level => {
+        if (level === 3) {
+          oneAway = true;
+        }
+      });
+      
+      updatedItems.forEach(item => { if (item.selected) item.mistake = true });
+      items = updatedItems;
+
+      if (oneAway) hint = "One away!";
+
+      setTimeout(() => removeMistake(), 1000);
     }
 
     history = [...history, selected];
@@ -164,7 +177,7 @@
 <p>Create four groups of four!</p>
 <div class="connectle-wrapper">
   {#each completedRows as completedRow}
-    <CompletedRow data={completedRow.category} />
+    <CompletedRow data={completedRow} />
   {/each}
   {#each unsolvedRows as unsolvedRow}
     <UnsolvedRowItems items={unsolvedRow.items} itemSelected={itemSelected} />
@@ -185,7 +198,7 @@
   {#if gameState === "playing"}    
     <button on:click={handleShuffle}>Shuffle</button>
     <button id="deselect-all-button" on:click={deselectAll}>Deselect All</button>
-    <button id="submit-button" disabled={numberSelected === 4 ? false : true} on:click={checkSubmit}>Submit</button>
+    <button id="submit-button" disabled={numberSelected === 4 ? false : true} on:click={checkAnswer}>Submit</button>
   {:else}
     <button on:click={() => displayPopup = true}>View Results</button>
   {/if}

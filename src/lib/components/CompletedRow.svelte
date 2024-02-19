@@ -6,7 +6,7 @@
   <div class="complete-header">
       <h3>{data.title}</h3>
   </div>
-  <p>{data.members.join(", ")}</p>
+  <p>{data.items.join(", ")}</p>
 </div>
 
 <style lang="scss">
