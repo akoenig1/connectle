@@ -16,6 +16,10 @@
     displayModal = false;
   }
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") displayModal = false;
+  };
+
   const share = () => {
     let text = "Connections: " + title + "\n";
     for (const row of history) {
@@ -38,7 +42,13 @@
 {#if displayModal}
   <div id="modal">
     <div id="modal-content">
-      <div class="close-x" on:click={handleClose}></div>
+      <div 
+        class="close-x" 
+        role="button" 
+        tabindex="0" 
+        on:click={handleClose} 
+        on:keydown={handleKeyDown}
+      ></div>
       {#if state === "won"}
         <h2>Great!</h2>
       {:else}
@@ -102,10 +112,6 @@
     align-items: center;
     background-color: rgba(255, 255, 255, 0.8);
     display: flex;
-
-    &.show {
-      display: flex;
-    }
   }
 
   #modal-content {
@@ -149,7 +155,7 @@
     width: 24px;
     height: 24px;
     background: center/24px 24px no-repeat;
-    background-image: url(./assets/icon-close.svg);
+    background-image: url(../../assets/icon-close.svg);
     cursor: pointer;
   }
 
