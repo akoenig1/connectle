@@ -30,6 +30,7 @@
   };
   let buttonState = 0;
   let submitted = false;
+  let linkRef = null;
 
   const moveUp = (event, level) => {
     event.preventDefault();
@@ -51,6 +52,10 @@
     data.categories[level + 1].level = level + 1;
   }
 
+  const handleChangePuzzleTitle = (event) => {
+    data = { ...data, title: event.target.value };
+  }
+
   const handleChangeTitle = (value, level) => {
     const newCategories = [...data.categories];
     newCategories[level].title = value;
@@ -70,7 +75,7 @@
       data.categories.forEach(category => {
         if (category.title.length > 0) {
           category.items.forEach(item => {
-            if (items.length <= 0) {
+            if (item.length <= 0) {
               filled = false;
             }
           });
@@ -88,9 +93,9 @@
         // await updateGame(slug, dataToSubmit);
       } else if(!submitted) {
         submitted = true;
-        console.log(submitted);
         // const { result, error } = await addGame(dataToSubmit);
-        // setSlug(result.id);
+        // slug = result.id; remove below assignment
+        slug = "a";
       }
     } else {
       alert('Not all fields are filled out!');
@@ -132,7 +137,7 @@
   <form>
     <label>
       <h3>Title</h3>
-      <input type="text" maxLength={30} />
+      <input type="text" maxLength={30} value={data.title} on:change={handleChangePuzzleTitle} />
     </label>
     <h3>Categories</h3>
     <CategoryForm
@@ -169,6 +174,20 @@
     />
     <button on:click={handleSubmit}>{slug ? "Update" : "Submit"}</button>
   </form>
+  {#if submitted}
+    {#if !slug}
+      <p>Loading...</p>
+    {:else}
+      <div class="game-link" ref={linkRef}>
+        <h3>Here&apos;s your game link!</h3>
+        <input type="text" readOnly value={URL + slug} />
+        <div class="buttons-wrapper">
+          <button on:click={copyToClipboard}>{buttonState === 0 ? "Copy Link" : "Copied!"}</button>
+          <button on:click={() => window.open("https://localhost5173/" + slug, "_blank")}>Go to Game</button>
+        </div>
+      </div>
+    {/if}
+  {/if}
 </div>
 
 <style lang="scss">
