@@ -1,5 +1,6 @@
 <script>
   import CategoryForm from "$lib/components/CategoryForm.svelte";
+  import { PUBLIC_BASE_URL } from "$env/static/public";
 
   let slug = "";
   let data = {
@@ -104,10 +105,14 @@
 
   const copyToClipboard = (event) => {
     event.preventDefault();
-    navigator.clipboard.writeText(URL + slug);
+    navigator.clipboard.writeText(PUBLIC_BASE_URL + slug);
     buttonState = 1;
     setTimeout(() => buttonState = 0, 1000);
   };
+
+  $: if (slug && linkRef) {
+    linkRef.scrollIntoView({ behavior: "smooth" });
+  }
 </script>
 
 <div class="container">
@@ -178,9 +183,9 @@
     {#if !slug}
       <p>Loading...</p>
     {:else}
-      <div class="game-link" ref={linkRef}>
+      <div class="game-link" bind:this={linkRef}>
         <h3>Here&apos;s your game link!</h3>
-        <input type="text" readOnly value={URL + slug} />
+        <input type="text" readOnly value={PUBLIC_BASE_URL + slug} />
         <div class="buttons-wrapper">
           <button on:click={copyToClipboard}>{buttonState === 0 ? "Copy Link" : "Copied!"}</button>
           <button on:click={() => window.open("https://localhost5173/" + slug, "_blank")}>Go to Game</button>
@@ -312,5 +317,22 @@
     left: 2.6rem;
     bottom: 1.4rem;
     position: absolute;
+  }
+
+  .game-link {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    input {
+      margin: 10px 0;
+    }
+  }
+
+  .buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
   }
 </style>
