@@ -105,7 +105,7 @@
   };
 </script>
 
-<div class="contanier">
+<div class="container">
   <div class="container-header">
     <h1>Connectle</h1>
     <p>Create a custom puzzle based on the <a href="https://www.nytimes.com/games/connections" target="_blank">NYT Connections game</a>!</p>
@@ -170,3 +170,128 @@
     <button on:click={handleSubmit}>{slug ? "Update" : "Submit"}</button>
   </form>
 </div>
+
+<style lang="scss">
+  $yellow: #f9df6d;
+  $green: #a0c35a;
+  $blue: #b0c4ef;
+  $purple: #ba81c5;
+  
+  h1 {
+    font-family: 'Karnak Condensed', serif;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size: 42px;
+  }
+
+  h3 {
+    font-family: 'Franklin Bold', sans-serif;
+  }
+
+  p {
+    font-family: 'Franklin Light', sans-serif;
+  }
+
+  button {
+    font-family: 'Franklin', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    width: fit-content;
+    min-width: 5.5em;
+    height: 3em;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    max-width: 80vw;
+    border-radius: 32px;
+    line-height: 16px;
+    cursor: pointer;
+    border: black solid 1px;
+    background: white;
+    color: black;
+  }
+
+  form {
+    padding: 20px;
+    text-align: left;
+  }
+
+  label {
+    padding: 5px 0;
+    display: block;
+  }
+
+  input {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid black;
+  }
+
+  .container {
+    width: 600px;
+    margin: 50px auto;
+    text-align: center;
+  }
+
+  .container-header {
+    padding: 0 20px;
+
+    a {
+      color: $green;
+      text-decoration: underline;
+    }
+  }
+
+  .instructions {
+    text-align: left;
+    width: 150px;
+    margin: 20px auto 0;
+  }
+
+  .help-emojis {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    >div {
+      display: inline-flex;
+      align-items: center;
+      height: 20px;
+    }
+  }
+
+  .help-emoji {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    border-radius: 2px;
+    margin-bottom: 1.5px;
+
+    &.group-0 {
+      background: $yellow;
+    }
+
+    &.group-1 {
+      background: $green;
+    }
+
+    &.group-2 {
+      background: $blue;
+    }
+
+    &.group-3 {
+      background: $purple;
+    }
+  }
+
+  #help-arrow {
+    height: 2.2rem;
+    left: 2.6rem;
+    bottom: 1.4rem;
+    position: absolute;
+  }
+</style>
