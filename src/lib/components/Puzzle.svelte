@@ -159,10 +159,41 @@
     setTimeout(() => displayPopup = true, 1000);
   }
 
+  const revealAnswer = (index) => {
+    answerIndex++;
+    if (completedRows.findIndex(row => row.level === index) < 0) {
+      const updatedItems = [...items];
+
+      updatedItems.sort((a, b) => {
+        if (a.level === index) return -1;
+        else if (b.level === index) return 1;
+        else return 0;
+      });
+
+      for (let i = 0; i < 4; i++) {
+        updatedItems.shift();
+      }
+
+      completedRows = [...completedRows, gameData.categories[index]];
+      items = updatedItems;
+    } else {
+      revealAnswer(index + 1);
+    }
+  }
+
+  const updateGameStatus = () => {
+    if (completedRows.length >= 4) {
+      winGame();
+    } else if (gameState === "lost") {
+      setTimeout(() => revealAnswer(answerIndex), 1000);
+    }
+  }
+
   onMount(() => {
     items = getItems(gameData.categories);
   });
   $: items, calculateUnsolvedRows();
+  $: completedRows, updateGameStatus();
 </script>
 
 <div id="hint" class={hint.length > 0 ? "show" : ""}><p>{hint}</p></div>
