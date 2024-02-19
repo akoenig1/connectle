@@ -1,6 +1,7 @@
 <script>
 	import CompletedRow from "./CompletedRow.svelte";
   import UnsolvedRowItems from "./UnsolvedRowItems.svelte";
+  import Modal from "./Modal.svelte";
   import { shuffle } from "$lib/utils/shuffle";
 	import { onMount } from "svelte";
 
@@ -15,9 +16,8 @@
   let numberSelected = 0;
   let mistakes = 4;
   let gameState = "playing";
-
   let hint = "";
-  let displayPopup = false;
+  let displayModal = false;
   let answerIndex = 0;
 
   const getItems = (categories) => {
@@ -61,13 +61,17 @@
     items = shuffle([...items]);
   }
 
-  const deselectAll = () => {
+  const handleDeselectAll = () => {
     const updatedItems = [...items];
     updatedItems.forEach((item) => {
       item.selected = false;
     });
     items = updatedItems;
     numberSelected = 0;
+  }
+
+  const handleViewResults = () => {
+    displayModal = true;
   }
 
   const removeMistake = () => {
@@ -149,14 +153,12 @@
   }
 
   const removeBubble = () => {
-    console.log(mistakes);
-    console.log(bubbles);
     bubbles = bubbles.slice(0, -1);
   };
 
   const winGame = () => {
     if (gameState === "playing") gameState = "won";
-    setTimeout(() => displayPopup = true, 1000);
+    setTimeout(() => displayModal = true, 1000);
   }
 
   const revealAnswer = (index) => {
@@ -197,7 +199,7 @@
 </script>
 
 <div id="hint" class={hint.length > 0 ? "show" : ""}><p>{hint}</p></div>
-<!-- <PopUp state={gameState} title={gameData.title} history={history} slug={slug} displayPopup={displayPopup} /> -->
+<Modal state={gameState} title={gameData.title} history={history} slug={slug} bind:displayModal />
 <div class="header">
     <div class="title">
         <h1>Connectle</h1>
@@ -228,10 +230,10 @@
 <div class="buttons-wrapper">
   {#if gameState === "playing"}    
     <button on:click={handleShuffle}>Shuffle</button>
-    <button id="deselect-all-button" on:click={deselectAll}>Deselect All</button>
+    <button id="deselect-all-button" on:click={handleDeselectAll}>Deselect All</button>
     <button id="submit-button" disabled={numberSelected === 4 ? false : true} on:click={checkAnswer}>Submit</button>
   {:else}
-    <button on:click={() => displayPopup = true}>View Results</button>
+    <button on:click={handleViewResults}>View Results</button>
   {/if}
 </div>
 
