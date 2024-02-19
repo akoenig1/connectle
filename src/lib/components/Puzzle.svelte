@@ -11,6 +11,7 @@
   let unsolvedRows = [];
   let completedRows = [];
   let history = [];
+  let bubbles = ["bubble", "bubble", "bubble", "bubble"];
   let numberSelected = 0;
   let mistakes = 4;
   let gameState = "playing";
@@ -131,7 +132,8 @@
       items = updatedItems;
 
       if (oneAway) hint = "One away!";
-
+      
+      removeBubble();
       setTimeout(() => removeMistake(), 1000);
     }
 
@@ -146,12 +148,10 @@
     unsolvedRows = rows;
   }
 
-  const renderBubbles = () => {
-    const bubbles = [];
-    for (let i = 0; i < mistakes; i++) {
-      bubbles.push("bubble");
-    }
-    return bubbles;
+  const removeBubble = () => {
+    console.log(mistakes);
+    console.log(bubbles);
+    bubbles = bubbles.slice(0, -1);
   };
 
   const winGame = () => {
@@ -218,7 +218,7 @@
   <div class="mistakes-container">
     <p>Mistakes remaining:</p>
     <div class="bubbles-container">
-      {#each renderBubbles() as bubble}
+      {#each bubbles as bubble}
         <div class="bubble"></div>
       {/each}
     </div>
@@ -320,12 +320,6 @@
       display: inline-block;
       font-size: 28px;
       font-weight: 300;
-    }
-
-    img {
-      width: 204px;
-      flex-shrink: 0;
-      margin-right: 16px;
     }
 
     .title {
