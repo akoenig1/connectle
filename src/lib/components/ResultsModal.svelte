@@ -20,7 +20,7 @@
   };
 
   const share = () => {
-    let text = "Connections: " + title + "\n";
+    let text = "Connectle: " + title + "\n";
     for (const row of history) {
       for (const item of row) {
         text += emojis[item.level];
@@ -53,7 +53,7 @@
       {:else}
         <h2>Next Time!</h2>
       {/if}
-      <h3>Connections: {title}</h3>
+      <h3>Connectle: {title}</h3>
       <div id="emoji-recap">
         {#each history as round, index} 
           <div key={index} class="emoji-row">
