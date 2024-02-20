@@ -6,7 +6,7 @@
 
   let slug = data.slug;
   let loading = true;
-  let gameData = {};
+  let gameData = null;
 
   onMount(() => {
     if (data.result) {
@@ -14,6 +14,8 @@
     }
     loading = false;
   });
+
+  $: console.log(gameData);
 </script>
 
 <div class="app">
