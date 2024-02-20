@@ -27,6 +27,7 @@
       },
     ],
     title: "",
+    author: "",
   };
   let buttonState = 0;
   let submitted = false;
@@ -54,6 +55,10 @@
 
   const handleChangePuzzleTitle = (event) => {
     data = { ...data, title: event.target.value };
+  }
+
+  const handleChangePuzzleAuthor = (event) => {
+    data = { ...data, author: event.target.value };
   }
 
   const handleChangeTitle = (value, level) => {
@@ -153,7 +158,9 @@
   <form>
     <label>
       <h3>Title</h3>
-      <input type="text" maxLength={30} value={data.title} on:change={handleChangePuzzleTitle} />
+      <input type="text" maxLength={50} value={data.title} on:change={handleChangePuzzleTitle} placeholder="The title of your Connectle puzzle..." />
+      <h3>Author</h3>
+      <input type="text" maxLength={50} value={data.title} on:change={handleChangePuzzleAuthor} placeholder="Your name..." />
     </label>
     <h3>Categories</h3>
     <CategoryForm

@@ -2,6 +2,8 @@
   import { onMount } from "svelte";
   
   export let gameStarted;
+  export let title;
+  export let author;
   
   const handlePlayClick = () => {
     gameStarted = true;
@@ -34,8 +36,8 @@
         <button type="button" class="button" on:click={handlePlayClick} on:keydown={handlePlayKeyDown}>Play</button>
       </div>
       <p class="info slide-up" style="animation-delay: 175ms;">
-        <span class="info-date">February 20, 2024</span>
-        <span class="info-editor">By Alex Koenig</span>
+        <span class="info-date">{title}</span>
+        <span class="info-editor">By {author ?? "Anonymous"}</span>
       </p>
     </div>
   </div>

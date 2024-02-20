@@ -35,6 +35,8 @@
       {#if !gameStarted}
         <PregameModal 
           bind:gameStarted
+          title={gameData.title}
+          author={gameData.author}
         />
       {:else}
         <Puzzle 
