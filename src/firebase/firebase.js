@@ -38,6 +38,7 @@ export async function getDataFromSlug(slug) {
 const dataConverter = {
   toFirestore: (data) => {
     return {
+      id: data.id,
       categories: data.categories,
       title: data.title,
       author: data.author
@@ -46,6 +47,7 @@ const dataConverter = {
   fromFirestore: (snapshot, options) => {
     const data = snapshot.data(options);
     return { 
+      id: data.id,
       categories: data.categories, 
       title: data.title, 
       author: data.author 

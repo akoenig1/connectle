@@ -11,7 +11,7 @@ export async function POST({ request }) {
     console.log(error);
   }
 
-  return new Response( JSON.stringify({ result: result, error: false }), { status: 200 });
+  return new Response( JSON.stringify({ result: result.id, error: false }), { status: 200 });
 }
 
 export async function PUT({ request }) {
