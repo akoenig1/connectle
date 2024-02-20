@@ -1,12 +1,12 @@
-import { connectles } from '../../db/mongo.js';
+import { addGame } from '../../firebase/firebase.js';
 
 export async function POST({ request }) {
   const body = await request.json();
   let result = null;
   
   try {
-    result = await connectles.insertOne(body);
-    console.log(`Document ${result.insertedId} inserted successfully`);
+    result = await addGame(body);
+    console.log(`Document ${result.id} inserted successfully`);
   } catch (error) {
     console.log(error);
   }
