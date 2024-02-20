@@ -26,14 +26,14 @@
 <div class="pregame-modal-container">
   <div class="container">
     <div class="content sequence-animation">
-      <div class="icon slide-up" style="transition-delay: 25ms;"></div>
-      <h2 class="title slide-up" style="transition-delay: 50ms;">Connections</h2>
-      <h3 class="description slide-up" style="transition-delay: 75ms;">Group words that share a common thread.</h3>
-      <span class="meta slide-up" style="transition-delay: 100ms;"></span>
-      <div class="button-wrapper slide-up" style="transition-delay: 125ms;">
+      <div class="icon slide-up" style="animation-delay: 25ms;"></div>
+      <h2 class="title slide-up" style="animation-delay: 50ms;">Connections</h2>
+      <h3 class="description slide-up" style="animation-delay: 75ms;">Group words that share a common thread.</h3>
+      <span class="meta slide-up" style="animation-delay: 100ms;"></span>
+      <div class="button-wrapper slide-up" style="animation-delay: 125ms;">
         <button type="button" class="button" on:click={handlePlayClick} on:keydown={handlePlayKeyDown}>Play</button>
       </div>
-      <p class="info slide-up" style="transition-delay: 175ms;">
+      <p class="info slide-up" style="animation-delay: 175ms;">
         <span class="info-date">February 20, 2024</span>
         <span class="info-editor">By Alex Koenig</span>
       </p>
@@ -142,5 +142,23 @@
     font-size: 0.875em;
     line-height: 1.25;
     letter-spacing: .01em;
+  }
+
+  .slide-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 600ms cubic-bezier(0.1, 0.2, 0.3, 1) forwards;
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
   }
 </style>
