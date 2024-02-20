@@ -53,10 +53,6 @@
       </div>
     {/if}
   {/if}
-  <div class={"attribution " + (gameStarted ? "" : "pregame")}>
-    <p class='small-p'>No affiliation to the New York Times or any of its subsidiaries.</p>
-    <p class='regular-p'>Created by Alex Koenig</p>
-  </div>
 </div>
 
 <style lang="scss">
@@ -124,24 +120,6 @@
     margin-left: 8px;
     padding: 1px 33px 4px;
     cursor: pointer;
-  }
-
-  .attribution {
-    font-size: 12px;
-    margin: auto;
-    width: 100%;
-
-    .small-p {
-      font-size: 10px;
-    }
-
-    .regular-p {
-      font-size: 12px;
-    }
-
-    &.pregame {
-      background-color: rgb(179, 167, 254);
-    }
   }
 
   @media screen and (max-width: 600px) {

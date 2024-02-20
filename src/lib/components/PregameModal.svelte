@@ -40,6 +40,10 @@
         <span class="info-editor">By {author ?? "Anonymous"}</span>
       </p>
     </div>
+    <div class="attribution">
+      <p class='small-p'>No affiliation to the New York Times or any of its subsidiaries.</p>
+      <p class='regular-p'>Created by Alex Koenig</p>
+    </div>
   </div>
 </div>
 
@@ -150,6 +154,20 @@
     opacity: 0;
     transform: translateY(20px);
     animation: slideUp 600ms cubic-bezier(0.1, 0.2, 0.3, 1) forwards;
+  }
+
+  .attribution {
+    font-size: 12px;
+    margin: 0 auto;
+    width: 100%;
+
+    .small-p {
+      font-size: 10px;
+    }
+
+    .regular-p {
+      font-size: 12px;
+    }
   }
 
   @keyframes slideUp {
