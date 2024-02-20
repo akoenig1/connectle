@@ -70,9 +70,7 @@
   .app {
     text-align: center;
     height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    position: relative;
   }
 
   .header {
