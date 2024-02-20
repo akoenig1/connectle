@@ -14,7 +14,7 @@
   </div>
   <label>
     <h4>Title</h4>
-    <input type="text" maxLength={50} value={data.categories[level].title} on:change={(e) => handleChangeTitle(e.target.value, level)} />
+    <input type="text" maxLength={50} value={data.categories[level].title} on:change={(e) => handleChangeTitle(e.target.value, level)} placeholder="The theme of this category..." />
   </label>
   <div class="category-items-wrapper">
     <label>
