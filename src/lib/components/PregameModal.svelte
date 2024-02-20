@@ -29,7 +29,7 @@
   <div class="container">
     <div class="content sequence-animation">
       <div class="icon slide-up" style="animation-delay: 25ms;"></div>
-      <h2 class="title slide-up" style="animation-delay: 50ms;">Connections</h2>
+      <h2 class="title slide-up" style="animation-delay: 50ms;">Connectle</h2>
       <h3 class="description slide-up" style="animation-delay: 75ms;">Group words that share a common thread.</h3>
       <span class="meta slide-up" style="animation-delay: 100ms;"></span>
       <div class="button-wrapper slide-up" style="animation-delay: 125ms;">
