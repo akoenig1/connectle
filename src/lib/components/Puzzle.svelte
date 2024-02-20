@@ -202,8 +202,8 @@
 <Modal state={gameState} title={gameData.title} history={history} slug={slug} bind:displayModal />
 <div class="header">
     <div class="title">
-        <h1>Connectle</h1>
-        <h2>{gameData.title}</h2>
+      <h1>Connectle</h1>
+      <h2>{gameData.title}</h2>
     </div>
     <div class="nav-button"><a href="/">Create new game</a></div>
 </div>
@@ -402,6 +402,31 @@
   #submit-button {
     background: black;
     color: white;
+  }
+
+  @media screen and (max-width: 600px) {
+    .header {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .title {
+      margin: 20px 0;
+      flex-direction: column;
+
+      h1 {
+        margin: 0;
+        line-height: 42px;
+      }
+
+      h2 {
+        line-height: 28px;
+      }
+    }
+
+    .connectle-wrapper {
+      width: 100%;
+    }
   }
 
   @keyframes fadein {

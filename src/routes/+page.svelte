@@ -129,7 +129,8 @@
   <div class="container-header">
     <h1>Connectle</h1>
     <p>Create a custom puzzle based on the <a href="https://www.nytimes.com/games/connections" target="_blank">NYT Connections game</a>!</p>
-    <p>No affiliation to the New York Times or its subsidiaries.</p>
+    <p>No affiliation to the New York Times or any of its subsidiaries.</p>
+    <p>Created by Alex Koenig.</p>
     <div class="instructions">
       <h3>Difficulty Levels</h3>
       <ul class="help-emojis">

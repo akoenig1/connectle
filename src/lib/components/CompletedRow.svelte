@@ -62,4 +62,16 @@
       line-height: 20px;
     }
   }
+
+  @media screen and (max-width: 600px) {
+    .row-complete-wrapper {
+      width: 98%;
+      margin: 1%;
+
+      h3,
+      p {
+        font-size: 16px;
+      }
+    }
+  }
 </style>

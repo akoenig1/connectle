@@ -61,6 +61,13 @@
     animation: shake ease-in 0.2s 1.5;
   }
 
+  @media screen and (max-width: 600px) {
+    .item {
+      width: 23%;
+      margin: 1%;
+    }
+  }
+
   @keyframes shake {
     0%,
     25% {
