@@ -73,7 +73,7 @@
   
   .app {
     text-align: center;
-    height: 100dvh;
+    height: 100vh;
     position: relative;
   }
 
