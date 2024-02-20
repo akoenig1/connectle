@@ -14,7 +14,11 @@
 </script>
 
 <div 
-  class={"item" + (data.selected ? " selected" : "") + (data.mistake ? " invalid-shake" : "")}
+  class={
+    "item" 
+    + (data.selected ? " selected" : "") 
+    + (data.mistake ? " invalid-shake" : "") 
+    + (data.title.length < 15 ? " short-item" : data.title.length < 30 ? " medium-item" : " long-item")}
   role="button"
   tabindex="0"
   on:click={handleClick} 
@@ -31,7 +35,6 @@
     width: 150px;
     height: 80px;
     margin: 4px;
-    font-size: 16px;
     background-color: $item-grey;
     color: black;
     outline: none;
@@ -54,6 +57,18 @@
     &.selected {
       color: white;
       background: $selected-color;
+    }
+
+    &.short-item {
+      font-size: 16px;
+    }
+
+    &.medium-item {
+      font-size: 12px;
+    }
+
+    &.long-item {
+      font-size: 10px;
     }
   }
 

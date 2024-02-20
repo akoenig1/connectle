@@ -19,19 +19,19 @@
   <div class="category-items-wrapper">
     <label>
       <h4>Item 1</h4>
-      <input type="text" maxLength={15} value={data.categories[level].items[0]} on:change={(e) => handleChangeItem(e.target.value, level, 0)} />
+      <input type="text" maxLength={50} value={data.categories[level].items[0]} on:change={(e) => handleChangeItem(e.target.value, level, 0)} />
     </label>
     <label>
       <h4>Item 2</h4>
-      <input type="text" maxLength={15} value={data.categories[level].items[1]} on:change={(e) => handleChangeItem(e.target.value, level, 1)} />
+      <input type="text" maxLength={50} value={data.categories[level].items[1]} on:change={(e) => handleChangeItem(e.target.value, level, 1)} />
     </label>
     <label>
       <h4>Item 3</h4>
-      <input type="text" maxLength={15} value={data.categories[level].items[2]} on:change={(e) => handleChangeItem(e.target.value, level, 2)} />
+      <input type="text" maxLength={50} value={data.categories[level].items[2]} on:change={(e) => handleChangeItem(e.target.value, level, 2)} />
     </label>
     <label>
       <h4>Item 4</h4>
-      <input type="text" maxLength={15} value={data.categories[level].items[3]} on:change={(e) => handleChangeItem(e.target.value, level, 3)} />
+      <input type="text" maxLength={50} value={data.categories[level].items[3]} on:change={(e) => handleChangeItem(e.target.value, level, 3)} />
     </label>
   </div>
 </div>
