@@ -51,6 +51,10 @@
       </div>
     {/if}
   {/if}
+  <div class="attribution">
+    <p class='small-p'>No affiliation to the New York Times or any of its subsidiaries.</p>
+    <p class='regular-p'>Created by Alex Koenig</p>
+  </div>
 </div>
 
 <style lang="scss">
@@ -67,6 +71,8 @@
   
   .app {
     text-align: center;
+    height: 100vh;
+    position: relative;
   }
 
   .header {
@@ -114,6 +120,23 @@
     margin-left: 8px;
     padding: 1px 33px 4px;
     cursor: pointer;
+  }
+
+  .attribution {
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto 10px auto;
+
+    .small-p {
+      font-size: 10px;
+    }
+
+    .regular-p {
+      font-size: 12px;
+    }
   }
 
   @media screen and (max-width: 600px) {
