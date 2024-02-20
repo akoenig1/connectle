@@ -278,7 +278,7 @@
   
   #hint {
     visibility: hidden;
-    font-family: 'NYT-Franklin';
+    font-family: 'Franklin';
     position: fixed;
     left: 50%;
     transform: translateX(calc(-50% - 30px));
