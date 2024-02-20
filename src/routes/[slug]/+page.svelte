@@ -53,7 +53,7 @@
       </div>
     {/if}
   {/if}
-  <div class="attribution">
+  <div class={"attribution " + (gameStarted ? "" : "pregame")}>
     <p class='small-p'>No affiliation to the New York Times or any of its subsidiaries.</p>
     <p class='regular-p'>Created by Alex Koenig</p>
   </div>
@@ -73,8 +73,10 @@
   
   .app {
     text-align: center;
-    height: 100vh;
-    position: relative;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
   .header {
@@ -126,11 +128,8 @@
 
   .attribution {
     font-size: 12px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto 10px auto;
+    margin: auto;
+    width: 100%;
 
     .small-p {
       font-size: 10px;
@@ -138,6 +137,10 @@
 
     .regular-p {
       font-size: 12px;
+    }
+
+    &.pregame {
+      background-color: rgb(179, 167, 254);
     }
   }
 
