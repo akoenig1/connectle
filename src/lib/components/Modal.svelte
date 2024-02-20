@@ -1,5 +1,5 @@
 <script>
-  import { afterUpdate } from "svelte";
+  import { PUBLIC_BASE_URL } from "$env/static/public";
   
   export let state;
   export let title;
@@ -10,7 +10,6 @@
   let buttonClickable = true;
   const levelNames = ["yellow", "green", "blue", "purple"];
   const emojis = ["🟨", "🟩", "🟦", "🟪"];
-  const URL = "https://localhost:5173";
 
   const handleClose = () => {
     displayModal = false;
@@ -28,7 +27,7 @@
       }
       text += "\n";
     }
-    text += URL + slug;
+    text += PUBLIC_BASE_URL + slug;
     if (navigator.share && navigator.canShare({text})) {
       navigator.share({text});
     } else {

@@ -199,7 +199,7 @@
         <input type="text" readOnly value={PUBLIC_BASE_URL + slug} />
         <div class="buttons-wrapper">
           <button on:click={copyToClipboard}>{buttonState === 0 ? "Copy Link" : "Copied!"}</button>
-          <button on:click={() => window.open("https://localhost5173/" + slug, "_blank")}>Go to Game</button>
+          <button on:click={() => window.open(PUBLIC_BASE_URL + slug, "_blank")}>Go to Game</button>
         </div>
       </div>
     {/if}
