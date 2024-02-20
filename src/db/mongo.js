@@ -1,11 +1,15 @@
 import { MONGODB_URI } from '$env/static/private';
 import { MongoClient } from 'mongodb';
 
-const client = new MongoClient(MONGODB_URI);
+let client = null;
 
 export async function connect() {
-  console.log(`Connecting to MongoDB...`);
-  await client.connect();
+  if (!client) {
+    console.log(`Connecting to MongoDB...`);
+    client = new MongoClient(MONGODB_URI);
+    await client.connect();
+    console.log(`Connected to MongoDB`);
+  }
 }
 
 export async function disconnect() {
@@ -13,7 +17,13 @@ export async function disconnect() {
   await client.close();
 }
 
+export async function getClient() {
+  if (!client) await connect();
+  return client;
+}
+
 export function getDatabase() {
+  if (!client) getClient();
   return client.db();
 }
 
