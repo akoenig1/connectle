@@ -14,8 +14,6 @@
     }
     loading = false;
   });
-
-  $: console.log(gameData);
 </script>
 
 <div class="app">
