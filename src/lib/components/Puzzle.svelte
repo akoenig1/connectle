@@ -1,7 +1,7 @@
 <script>
 	import CompletedRow from "./CompletedRow.svelte";
   import UnsolvedRowItems from "./UnsolvedRowItems.svelte";
-  import Modal from "./Modal.svelte";
+  import ResultsModal from "./ResultsModal.svelte";
   import { shuffle } from "$lib/utils/shuffle";
 	import { onMount } from "svelte";
 
@@ -199,7 +199,7 @@
 </script>
 
 <div id="hint" class={hint.length > 0 ? "show" : ""}><p>{hint}</p></div>
-<Modal state={gameState} title={gameData.title} history={history} slug={slug} bind:displayModal />
+<ResultsModal state={gameState} title={gameData.title} history={history} slug={slug} bind:displayModal />
 <div class="header">
     <div class="title">
       <h1>Connectle</h1>
