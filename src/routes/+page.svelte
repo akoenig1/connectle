@@ -94,9 +94,20 @@
         // await updateGame(slug, dataToSubmit);
       } else if(!submitted) {
         submitted = true;
-        // const { result, error } = await addGame(dataToSubmit);
-        // slug = result.id; remove below assignment
-        slug = "a";
+        const options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(dataToSubmit),
+        };
+        const { result, error } = await fetch('/api', options).then(res => res.json());
+        if (error) {
+          alert('There was an error submitting your game. Please try again.');
+          submitted = false;
+        } else {
+          slug = result.id;
+        }
       }
     } else {
       alert('Not all fields are filled out!');
