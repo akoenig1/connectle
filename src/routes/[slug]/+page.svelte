@@ -67,7 +67,6 @@
   
   .app {
     text-align: center;
-    padding-bottom: 20px;
   }
 
   .header {
