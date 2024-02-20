@@ -1,11 +1,17 @@
+import { connectles } from '../../db/mongo.js';
+
 export async function POST({ request }) {
   const body = await request.json();
-  console.log(body);
-  const data = {
-    id: body.title,
-  };
-  return new Response( JSON.stringify({ result: data, error: false }), { status: 200 });
+  let result = null;
+  
+  try {
+    result = await connectles.insertOne(body);
+    console.log(`Document ${result.insertedId} inserted successfully`);
+  } catch (error) {
+    console.log(error);
+  }
 
+  return new Response( JSON.stringify({ result: result, error: false }), { status: 200 });
 }
 
 export async function PUT({ request }) {

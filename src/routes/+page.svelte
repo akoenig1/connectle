@@ -106,7 +106,7 @@
           alert('There was an error submitting your game. Please try again.');
           submitted = false;
         } else {
-          slug = result.id;
+          slug = result.insertedId;
         }
       }
     } else {
