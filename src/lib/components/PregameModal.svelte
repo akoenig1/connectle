@@ -17,7 +17,7 @@
     const header = document.querySelector('.header');
     const headerHeight = header.offsetHeight;
     const modal = document.querySelector('.pregame-modal-container');
-    if (modal) modal.style.height = `calc(100vh - ${headerHeight}px)`;
+    if (modal) modal.style.height = `calc(100dvh - ${headerHeight}px)`;
   }
 
   onMount(() => {
