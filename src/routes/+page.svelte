@@ -346,4 +346,10 @@
     justify-content: center;
     gap: 10px;
   }
+
+  @media screen and (max-width: 600px) {
+    .container {
+      width: 100%;
+    }
+  }
 </style>
