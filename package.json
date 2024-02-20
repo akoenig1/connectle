@@ -26,6 +26,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@sveltejs/adapter-vercel": "^5.1.0"
+		"@sveltejs/adapter-vercel": "^5.1.0",
+		"mongodb": "^6.3.0"
 	}
 }

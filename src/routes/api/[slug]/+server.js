@@ -1,7 +1,9 @@
-export async function GET() {
+export async function GET({ url }) {
+  const slug = url.pathname.replace(/^\/api\//, '');
   // const ref = doc(database, "connections", slug).withConverter(dataConverter);
   // const document = await getDoc(ref);
   // const data = document.data();
+  console.log(slug);
   const data = {
     title: "Test Game",
     categories: [
