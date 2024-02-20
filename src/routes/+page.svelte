@@ -27,7 +27,6 @@
       },
     ],
     title: "",
-    timeCreated: new Date(),
   };
   let buttonState = 0;
   let submitted = false;
