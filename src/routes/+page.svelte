@@ -160,7 +160,7 @@
       <h3>Title</h3>
       <input type="text" maxLength={50} value={data.title} on:change={handleChangePuzzleTitle} placeholder="The title of your Connectle puzzle..." />
       <h3>Author</h3>
-      <input type="text" maxLength={50} value={data.title} on:change={handleChangePuzzleAuthor} placeholder="Your name..." />
+      <input type="text" maxLength={50} value={data.author} on:change={handleChangePuzzleAuthor} placeholder="Your name..." />
     </label>
     <h3>Categories</h3>
     <CategoryForm
