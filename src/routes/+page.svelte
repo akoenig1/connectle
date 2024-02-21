@@ -76,7 +76,7 @@
   const handleSubmit = async (event) => {
     event.preventDefault();
     let filled = true;
-    if (data.title.length > 0) {
+    if (data.title.length > 0 && data.author.length > 0) {
       data.categories.forEach(category => {
         if (category.title.length > 0) {
           category.items.forEach(item => {
