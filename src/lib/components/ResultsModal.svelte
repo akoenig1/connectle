@@ -27,7 +27,7 @@
       }
       text += "\n";
     }
-    text += PUBLIC_BASE_URL + slug;
+    // text += PUBLIC_BASE_URL + slug;
     if (navigator.share && navigator.canShare({text})) {
       navigator.share({text});
     } else {
