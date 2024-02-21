@@ -37,7 +37,7 @@
       </div>
       <p class="info slide-up" style="animation-delay: 175ms;">
         <span class="info-date">{title}</span>
-        <span class="info-editor">By {author ?? "Anonymous"}</span>
+        <span class="info-editor">By {author.length > 0 ? author : "Anonymous"}</span>
       </p>
     </div>
     <div class="attribution">
