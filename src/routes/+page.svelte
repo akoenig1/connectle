@@ -94,8 +94,19 @@
     if (filled) {
       const dataToSubmit = { ...data, time_created: new Date() };
       if (slug) {
-        console.log(slug);
-        // await updateGame(slug, dataToSubmit);
+        // const options = {
+        //   method: "PUT",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify(dataToSubmit),
+        //   URLSearchParams: { slug },
+        // };
+        // const { result, error } = await fetch('/api', options).then(res => res.json());
+        // if (error) {
+        //   alert('There was an error updating your game. Please try again.');
+        // }
+        alert('Already submitted!');
       } else if(!submitted) {
         submitted = true;
         const options = {
@@ -195,7 +206,7 @@
       handleChangeTitle={handleChangeTitle}
       handleChangeItem={handleChangeItem}
     />
-    <button on:click={handleSubmit}>{slug ? "Update" : "Submit"}</button>
+    <button on:click={handleSubmit} class={slug ? "submitted" : ""}>Submit</button>
   </form>
   {#if submitted}
     {#if !slug}
@@ -253,6 +264,11 @@
     border: black solid 1px;
     background: white;
     color: black;
+
+    &.submitted {
+      color: grey;
+      border-color: grey;
+    }
   }
 
   form {
